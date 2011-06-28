@@ -27,14 +27,14 @@
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">localhost</parameter>
-    <parameter key="database_name">symfony</parameter>
+    <parameter key="database_name">hds</parameter>
     <parameter key="database_user">root</parameter>
-    <parameter key="database_password"></parameter>
+    <parameter key="database_password">monmotdepasse</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user"></parameter>
     <parameter key="mailer_password"></parameter>
-    <parameter key="locale">en</parameter>
+    <parameter key="locale">fr</parameter>
     <parameter key="secret">ThisTokenIsNotSoSecretChangeIt</parameter>
     <parameter key="router_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\RouterListener</parameter>
     <parameter key="session_listener.class">Symfony\Bundle\FrameworkBundle\EventListener\SessionListener</parameter>
@@ -60,7 +60,7 @@
     <parameter key="session.class">Symfony\Component\HttpFoundation\Session</parameter>
     <parameter key="session.storage.native.class">Symfony\Component\HttpFoundation\SessionStorage\NativeSessionStorage</parameter>
     <parameter key="session.storage.filesystem.class">Symfony\Component\HttpFoundation\SessionStorage\FilesystemSessionStorage</parameter>
-    <parameter key="session.default_locale">en</parameter>
+    <parameter key="session.default_locale">fr</parameter>
     <parameter key="session.storage.options" type="collection"/>
     <parameter key="form.extension.class">Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension</parameter>
     <parameter key="form.factory.class">Symfony\Component\Form\FormFactory</parameter>
@@ -783,7 +783,7 @@
     </service>
     <service id="session" class="Symfony\Component\HttpFoundation\Session">
       <argument type="service" id="session.storage"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <call method="start"/>
     </service>
     <service id="form.factory" class="Symfony\Component\Form\FormFactory">
@@ -1630,10 +1630,10 @@
     </service>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" factory-method="createConnection" factory-service="doctrine.dbal.connection_factory">
       <argument type="collection">
-        <argument key="dbname">symfony</argument>
+        <argument key="dbname">hds</argument>
         <argument key="host">localhost</argument>
         <argument key="user">root</argument>
-        <argument key="password"></argument>
+        <argument key="password">monmotdepasse</argument>
         <argument key="driver">pdo_mysql</argument>
         <argument key="port">null</argument>
         <argument key="driverOptions" type="collection"/>

@@ -216,7 +216,7 @@ class appDevDebugProjectContainer extends Container
         $b = new \Doctrine\Common\EventManager();
         $b->addEventSubscriber(new \Doctrine\DBAL\Event\Listeners\MysqlSessionInit('UTF8'));
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'symfony', 'host' => 'localhost', 'user' => 'root', 'password' => '', 'driver' => 'pdo_mysql', 'port' => NULL, 'driverOptions' => array()), $a, $b, array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('dbname' => 'hds', 'host' => 'localhost', 'user' => 'root', 'password' => 'monmotdepasse', 'driver' => 'pdo_mysql', 'port' => NULL, 'driverOptions' => array()), $a, $b, array());
     }
 
     /**
@@ -1401,7 +1401,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSessionService()
     {
-        $this->services['session'] = $instance = new \Symfony\Component\HttpFoundation\Session($this->get('session.storage'), 'en');
+        $this->services['session'] = $instance = new \Symfony\Component\HttpFoundation\Session($this->get('session.storage'), 'fr');
 
         $instance->start();
 
@@ -2113,14 +2113,14 @@ class appDevDebugProjectContainer extends Container
             'kernel.container_class' => 'appDevDebugProjectContainer',
             'database_driver' => 'pdo_mysql',
             'database_host' => 'localhost',
-            'database_name' => 'symfony',
+            'database_name' => 'hds',
             'database_user' => 'root',
-            'database_password' => '',
+            'database_password' => 'monmotdepasse',
             'mailer_transport' => 'smtp',
             'mailer_host' => 'localhost',
             'mailer_user' => '',
             'mailer_password' => '',
-            'locale' => 'en',
+            'locale' => 'fr',
             'secret' => 'ThisTokenIsNotSoSecretChangeIt',
             'router_listener.class' => 'Symfony\\Bundle\\FrameworkBundle\\EventListener\\RouterListener',
             'session_listener.class' => 'Symfony\\Bundle\\FrameworkBundle\\EventListener\\SessionListener',
@@ -2146,7 +2146,7 @@ class appDevDebugProjectContainer extends Container
             'session.class' => 'Symfony\\Component\\HttpFoundation\\Session',
             'session.storage.native.class' => 'Symfony\\Component\\HttpFoundation\\SessionStorage\\NativeSessionStorage',
             'session.storage.filesystem.class' => 'Symfony\\Component\\HttpFoundation\\SessionStorage\\FilesystemSessionStorage',
-            'session.default_locale' => 'en',
+            'session.default_locale' => 'fr',
             'session.storage.options' => array(
 
             ),

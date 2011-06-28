@@ -41,7 +41,19 @@ class __TwigTemplate_594753910506f716544833e9ba8d4233 extends Twig_Template
     public function block_body($context, array $blocks = array())
     {
         // line 5
-        echo "<h1>Registre de doléances</h1>
+        echo "
+<h1>Registre de doléances</h1>
+
+<div id=\"complaint-manager\">
+  <div id=\"committees\">
+    <h2>Commissions</h2>
+  </div>
+  <div id=\"complaints\">
+    <h2>Doléances</h2>
+  </div>
+  <div style=\"clear:both\"></div>
+</div>
+
 ";
     }
 
