@@ -12,6 +12,12 @@
 
 <div id="complaint-manager">
   <h1>Registre de doléances</h1>
+  <div class="accessibility">
+    <ul>
+      <li><a href="#commissions">Liste des commissions</a></li>
+      <li><a href="#doleances">Liste des doléances toutes commissions confondues</a></li>
+    </ul>
+  </div>
   <div id="committees">
     <h2>Commissions</h2>
   </div>
