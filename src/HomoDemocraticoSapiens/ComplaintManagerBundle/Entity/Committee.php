@@ -3,6 +3,8 @@
 namespace HomoDemocraticoSapiens\ComplaintManagerBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee
@@ -25,16 +27,27 @@ class Committee
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=50)
+     * @Assert\NotBlank()
+     * @Assert\MinLength(3)
      */
     private $name;
 
     /**
      * @var text $description
      *
-     * @ORM\Column(name="description", type="text", length=255)
+     * @ORM\Column(name="description", type="text")
      */
     private $description;
-
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Complaint", mappedBy="committee")
+     */
+    private $complaints;
+    
+    public function __construct()
+    {
+        $this->complaints = new ArrayCollection();
+    }
 
     /**
      * Get id

@@ -1,8 +1,8 @@
 <?php
 
 namespace HomoDemocraticoSapiens\ComplaintManagerBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Complaint
@@ -20,25 +20,26 @@ class Complaint
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
+    
     /**
-     * @var object $complaint_id
-     *
-     * @ORM\Column(name="complaint_id", type="object")
+     * @ORM\ManyToOne(targetEntity="Committee", inversedBy="complaints")
+     * @ORM\JoinColumn(name="committee_id", referencedColumnName="id")
      */
-    private $complaint_id;
+    protected $committee;
 
     /**
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=60)
+     * @Assert\NotBlank()
      */
     private $title;
 
     /**
      * @var text $message
      *
-     * @ORM\Column(name="message", type="text", length=500)
+     * @ORM\Column(name="message", type="text")
+     * @Assert\NotBlank()
      */
     private $message;
 
@@ -72,26 +73,6 @@ class Complaint
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set complaint_id
-     *
-     * @param object $complaintId
-     */
-    public function setComplaintId($complaintId)
-    {
-        $this->complaint_id = $complaintId;
-    }
-
-    /**
-     * Get complaint_id
-     *
-     * @return object $complaintId
-     */
-    public function getComplaintId()
-    {
-        return $this->complaint_id;
     }
 
     /**
@@ -212,5 +193,15 @@ class Complaint
     public function decrementDegreeOfAssumption()
     {
         $this->degree_of_assumption = $this->degree_of_assumption--;
+    }
+    
+    public function __construct()
+    {
+       $this->degree_of_assumption = 0;
+    }
+    
+    public function __toString()
+    {
+       return $this->title;
     }
 }
