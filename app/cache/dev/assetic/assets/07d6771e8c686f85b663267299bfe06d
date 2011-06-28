@@ -1,9 +1,0 @@
-#committes{
-  border: 1px solid red;
-  float: left;
-}
-
-#complaints{
-  border: 1px solid green;
-  float: right;
-}
