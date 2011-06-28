@@ -1,0 +1,3 @@
+complaint_manager:
+    resource: "@HomoDemocraticoSapiensComplaintManagerBundle/Controller/SecuredController.php"
+    type:     annotation
