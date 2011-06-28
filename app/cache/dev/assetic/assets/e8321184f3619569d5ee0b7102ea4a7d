@@ -1,0 +1,11 @@
+#committees{
+  border: 1px solid red;
+  float: left;
+  width: 20%;
+}
+
+#complaints{
+  border: 1px solid green;
+  float: right;
+  width: 80%;
+}

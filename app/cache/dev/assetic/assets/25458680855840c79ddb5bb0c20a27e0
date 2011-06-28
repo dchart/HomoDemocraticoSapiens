@@ -1,0 +1,17 @@
+h1{
+  border: 1px solid green;
+}
+
+
+#complaint-manager{
+  width: 100%;
+  border: 1px solid red;
+}
+
+#committees{
+  border: 1px solid yellow;
+}
+
+#complaints{
+  border: 1px solid pink;
+}

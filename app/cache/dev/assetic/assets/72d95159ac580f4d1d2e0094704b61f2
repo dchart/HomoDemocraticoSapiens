@@ -1,0 +1,11 @@
+#committees{
+  background: pink;
+  position:relative;
+  left: -230px;
+  width: 50px;
+}
+
+#complaints{
+  padding-left: 230px;
+  background: #eee;
+}

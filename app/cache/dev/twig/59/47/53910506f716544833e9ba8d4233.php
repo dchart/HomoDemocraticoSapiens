@@ -10,6 +10,7 @@ class __TwigTemplate_594753910506f716544833e9ba8d4233 extends Twig_Template
         parent::__construct($env);
 
         $this->blocks = array(
+            'stylesheets' => array($this, 'block_stylesheets'),
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
         );
@@ -31,27 +32,50 @@ class __TwigTemplate_594753910506f716544833e9ba8d4233 extends Twig_Template
         $this->getParent($context)->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 2
+    // line 3
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 4
+        echo "    ";
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "010fec6_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_010fec6_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/010fec6_styles_1.css");
+            // line 5
+            echo "        <link href=\"";
+            echo twig_escape_filter($this->env, $this->getContext($context, 'asset_url'), "html");
+            echo "\" type=\"text/css\" rel=\"stylesheet\" />
+    ";
+        } else {
+            // asset "010fec6"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_010fec6") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/010fec6.css");
+            echo "        <link href=\"";
+            echo twig_escape_filter($this->env, $this->getContext($context, 'asset_url'), "html");
+            echo "\" type=\"text/css\" rel=\"stylesheet\" />
+    ";
+        }
+        unset($context["asset_url"]);
+    }
+
+    // line 9
     public function block_title($context, array $blocks = array())
     {
         echo "Registre de doléances";
     }
 
-    // line 4
+    // line 11
     public function block_body($context, array $blocks = array())
     {
-        // line 5
+        // line 12
         echo "
-<h1>Registre de doléances</h1>
-
 <div id=\"complaint-manager\">
+  <h1>Registre de doléances</h1>
   <div id=\"committees\">
     <h2>Commissions</h2>
   </div>
-  <div id=\"complaints\">
+  <div id=\"complaints\">    
     <h2>Doléances</h2>
   </div>
-  <div style=\"clear:both\"></div>
+  <div style=\"clear:left\"></div>
 </div>
 
 ";

@@ -1,0 +1,11 @@
+#committees{
+  background: pink;
+  float: left;
+  width: 20%;
+}
+
+#complaints{
+  background: #eee;
+  float: right;
+  width: 80%;
+}

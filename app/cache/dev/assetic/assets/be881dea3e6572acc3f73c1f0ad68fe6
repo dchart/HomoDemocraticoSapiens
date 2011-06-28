@@ -1,0 +1,27 @@
+#complaint-manager{
+  width: 990px;
+  margin: 0 auto;
+}
+
+#committees, #complaints{
+  margin: 0;
+  padding: 0 2px;
+}
+
+#complaint-manager h2{
+  margin: 0;
+  padding: 0;
+}
+
+#committees{
+  float: left;
+  width: 215px;
+}
+
+#complaints{
+  float: left;
+  width: 760px;
+  border-left: 1px dotted silver;
+  margin-left: 1px;
+  padding-left: 7px;
+}

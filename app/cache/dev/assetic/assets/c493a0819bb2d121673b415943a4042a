@@ -1,0 +1,7 @@
+#committes{
+float: left;
+}
+
+#complaints{
+  float: right;
+}

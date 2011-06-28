@@ -83,6 +83,16 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
     
         }
 
+        // _assetic_010fec6
+        if ($pathinfo === '/css/010fec6.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '010fec6',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_010fec6',);
+        }
+
+        // _assetic_010fec6_0
+        if ($pathinfo === '/css/010fec6_styles_1.css') {
+            return array (  '_controller' => 'assetic.controller:render',  'name' => '010fec6',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_010fec6_0',);
+        }
+
         // _wdt
         if (preg_match('#^/_wdt/(?P<token>[^/]+?)$#x', $pathinfo, $matches)) {
             return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController::toolbarAction',)), array('_route' => '_wdt'));
