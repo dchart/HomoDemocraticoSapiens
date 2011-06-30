@@ -12,25 +12,10 @@ use HomoDemocraticoSapiens\ComplaintManagerBundle\Form\ComplaintType;
 /**
  * Complaint controller.
  *
- * @Route("/doleances")
+ * @Route("/registre-doleances")
  */
 class ComplaintController extends Controller
 {
-    /**
-     * Lists all Complaint entities.
-     *
-     * @Route("/", name="doleances")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entities = $em->getRepository('HomoDemocraticoSapiensComplaintManagerBundle:Complaint')->findAll();
-
-        return array('entities' => $entities);
-    }
-
     /**
      * Finds and displays a Complaint entity.
      *
@@ -58,7 +43,7 @@ class ComplaintController extends Controller
     /**
      * Displays a form to create a new Complaint entity.
      *
-     * @Route("/new", name="doleances_new")
+     * @Route("/redaction-doleance", name="complaint_new")
      * @Template()
      */
     public function newAction()

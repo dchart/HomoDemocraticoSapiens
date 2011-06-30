@@ -33,3 +33,7 @@
   background: url(/images/add_group.png) no-repeat left center;
   padding-left: 20px;
 }
+
+.committee-edit{
+  float: right;
+}
