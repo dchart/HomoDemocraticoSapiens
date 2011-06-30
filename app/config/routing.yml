@@ -1,3 +1,7 @@
 complaint_manager:
     resource: "@HomoDemocraticoSapiensComplaintManagerBundle/Controller/DefaultController.php"
     type:     annotation
+    
+committee:
+    resource: "@HomoDemocraticoSapiensComplaintManagerBundle/Controller/CommitteeController.php"
+    type:     annotation
