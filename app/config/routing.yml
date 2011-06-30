@@ -5,3 +5,7 @@ complaint_manager:
 committee:
     resource: "@HomoDemocraticoSapiensComplaintManagerBundle/Controller/CommitteeController.php"
     type:     annotation
+    
+complaint:
+    resource: "@HomoDemocraticoSapiensComplaintManagerBundle/Controller/ComplaintController.php"
+    type:     annotation

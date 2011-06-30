@@ -52,12 +52,12 @@ class Complaint
      *
      * @ORM\Column(name="is_censored", type="boolean")
      */
-    private $is_censored;
+    private $is_censored = false;
 
     /**
      * @var string $censorship_justification
      *
-     * @ORM\Column(name="censorship_justification", type="string", length=250)
+     * @ORM\Column(name="censorship_justification", type="string", length=250, nullable=true)
      */
     private $censorship_justification;
 
@@ -66,7 +66,7 @@ class Complaint
      *
      * @ORM\Column(name="degree_of_assumption", type="integer")
      */
-    private $degree_of_assumption;
+    private $degree_of_assumption = 0;
 
 
     /**
@@ -199,13 +199,28 @@ class Complaint
         $this->degree_of_assumption = $this->degree_of_assumption--;
     }
     
-    public function __construct()
-    {
-       $this->degree_of_assumption = 0;
-    }
-    
     public function __toString()
     {
        return $this->title;
+    }
+
+    /**
+     * Set committee
+     *
+     * @param HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee $committee
+     */
+    public function setCommittee(\HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee $committee)
+    {
+        $this->committee = $committee;
+    }
+
+    /**
+     * Get committee
+     *
+     * @return HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee $committee
+     */
+    public function getCommittee()
+    {
+        return $this->committee;
     }
 }

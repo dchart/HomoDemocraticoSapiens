@@ -98,4 +98,29 @@ class Committee
     {
         return $this->description;
     }
+
+    /**
+     * Add complaints
+     *
+     * @param HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Complaint $complaints
+     */
+    public function addComplaints(\HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Complaint $complaints)
+    {
+        $this->complaints[] = $complaints;
+    }
+
+    /**
+     * Get complaints
+     *
+     * @return Doctrine\Common\Collections\Collection $complaints
+     */
+    public function getComplaints()
+    {
+        return $this->complaints;
+    }
+
+    public function __toString()
+    {
+       return $this->name;
+    }
 }
