@@ -28,3 +28,8 @@
 .clear{
   clear: left;
 }
+
+#addgroup{
+  background: url(/images/add_group.png) no-repeat left center;
+  padding-left: 20px;
+}

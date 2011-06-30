@@ -1,11 +1,6 @@
         <ul>
 {% for committee in committees %}
-          <li>{{committee.name}}</li>
+          <li><a href="{{ path('committee_edit', { 'id': committee.id }) }}">{{ committee.name }}</a> <a href="{{ path('committee_edit', { 'id': committee.id }) }}" title="Editer la commission {{ committee.name }}">{% image "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/images/edit.png" %}<img src="{{ asset_url }}" alt="Editer la commission {{ committee.name }}" title="Editer la commission {{ committee.name }}" />{% endimage %}</a></li>
 {% endfor %}
         </ul>
-        <ul>
-          <li id="new-committee">Lancer une nouvelle commission</li>
-          <li id="edit-committee">Editer une commission</li>
-          <li id="disolve-committee">Dissoudre une commission</li>
-        </ul>
-        {{slug}}
+        <a href="{{ path('committee_new') }}" id="addgroup" title="Lancer une nouvelle commission">Nouvelle commission</a>

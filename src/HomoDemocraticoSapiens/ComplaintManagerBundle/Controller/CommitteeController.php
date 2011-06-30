@@ -12,53 +12,14 @@ use HomoDemocraticoSapiens\ComplaintManagerBundle\Form\CommitteeType;
 /**
  * Committee controller.
  *
- * @Route("/committee")
+ * @Route("/registre-doleances/commissions")
  */
 class CommitteeController extends Controller
 {
     /**
-     * Lists all Committee entities.
-     *
-     * @Route("/", name="committee")
-     * @Template()
-     */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entities = $em->getRepository('HomoDemocraticoSapiensComplaintManagerBundle:Committee')->findAll();
-
-        return array('entities' => $entities);
-    }
-
-    /**
-     * Finds and displays a Committee entity.
-     *
-     * @Route("/{id}/show", name="committee_show")
-     * @Template()
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entity = $em->getRepository('HomoDemocraticoSapiensComplaintManagerBundle:Committee')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Committee entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return array(
-            'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-        );
-    }
-
-    /**
      * Displays a form to create a new Committee entity.
      *
-     * @Route("/new", name="committee_new")
+     * @Route("/lancement", name="committee_new")
      * @Template()
      */
     public function newAction()
@@ -75,7 +36,7 @@ class CommitteeController extends Controller
     /**
      * Creates a new Committee entity.
      *
-     * @Route("/create", name="committee_create")
+     * @Route("/creation", name="committee_create")
      * @Method("post")
      * @Template("HomoDemocraticoSapiensComplaintManagerBundle:Committee:new.html.twig")
      */
@@ -107,7 +68,7 @@ class CommitteeController extends Controller
     /**
      * Displays a form to edit an existing Committee entity.
      *
-     * @Route("/{id}/edit", name="committee_edit")
+     * @Route("/edition/{id}", name="committee_edit")
      * @Template()
      */
     public function editAction($id)
@@ -133,7 +94,7 @@ class CommitteeController extends Controller
     /**
      * Edits an existing Committee entity.
      *
-     * @Route("/{id}/update", name="committee_update")
+     * @Route("/mise-a-jour/{id}", name="committee_update")
      * @Method("post")
      * @Template("HomoDemocraticoSapiensComplaintManagerBundle:Committee:edit.html.twig")
      */
@@ -174,7 +135,7 @@ class CommitteeController extends Controller
     /**
      * Deletes a Committee entity.
      *
-     * @Route("/{id}/delete", name="committee_delete")
+     * @Route("/dissolution/{id}", name="committee_delete")
      * @Method("post")
      */
     public function deleteAction($id)
