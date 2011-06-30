@@ -13,6 +13,9 @@
 [DoctrineFixturesBundle]
     git=http://github.com/symfony/DoctrineFixturesBundle.git
     target=/bundles/Symfony/Bundle/DoctrineFixturesBundle
+    
+[DoctrineSluggableBundle]
+    git=https://github.com/samjarrett/DoctrineSluggableBundle.git
 
 [doctrine-common]
     git=http://github.com/doctrine/common.git
