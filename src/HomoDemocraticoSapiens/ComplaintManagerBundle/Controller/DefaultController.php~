@@ -9,11 +9,11 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/registre-doleances/{committee}", name="complaint_manager")
+     * @Route("/registre-doleances", name="complaint_manager")
      * @Template()
      */
-    public function indexAction($committee)
+    public function indexAction()
     {
-        return array('committee' => $committee);
+        return array();
     }
 }

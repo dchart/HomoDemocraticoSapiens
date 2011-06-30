@@ -1,5 +1,6 @@
         <ul>
-{% for i in 'A'..'M' %}
-          <li>Commission {{i}}</li>
+{% for committee in committees %}
+          <li>{{committee.name}}</li>
 {% endfor %}
         </ul>
+        {{slug}}

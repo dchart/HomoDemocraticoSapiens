@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
 {% stylesheets "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/css/styles.css" %}
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
 {% endstylesheets %}
 {% endblock %}
 
@@ -20,7 +20,7 @@
       <div id="committees">
         <a name="commissions"></a>
         <h2>Commissions</h2>
-{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" %}
+{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" with {'committees': committees, 'slug':'slug'} %}
       </div>
       <div id="complaints">
         <a name="doleances"></a>

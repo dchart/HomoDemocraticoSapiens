@@ -14,6 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->container->get('doctrine.orm.entity_manager');
+        $committees = $em->getRepository('HomoDemocraticoSapiensComplaintManagerBundle:Committee')->findAll();
+        return array('committees'=>$committees);
     }
 }
