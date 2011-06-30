@@ -27,8 +27,8 @@ class Committee
      * @var string $name
      *
      * @ORM\Column(name="name", type="string", length=50)
-     * @Assert\NotBlank()
-     * @Assert\MinLength(3)
+     * @Assert\NotBlank(message="Veuillez intituler la commission.")
+     * @Assert\MinLength(limit=3, message="Le nom de la commission doit excéder {{limit}} caractères.")
      */
     private $name;
 

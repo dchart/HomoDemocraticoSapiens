@@ -24,6 +24,7 @@ class Complaint
     /**
      * @ORM\ManyToOne(targetEntity="Committee", inversedBy="complaints")
      * @ORM\JoinColumn(name="committee_id", referencedColumnName="id")
+     * @Assert\NotBlank(message="Veuillez désigner la commission la plus pertinente.")
      */
     protected $committee;
 
@@ -31,7 +32,9 @@ class Complaint
      * @var string $title
      *
      * @ORM\Column(name="title", type="string", length=60)
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Pensez à titre clair, concis et évocateur !")
+     * @Assert\MinLength(limit=5, message="Vous êtes trop taciturne ! {{ limit }} caractères minimum.")
+     * @Assert\MaxLength(limit=60, message="Votre titre doit être plus concis ! {{ limit }} caractères maximum.")
      */
     private $title;
 
@@ -39,7 +42,8 @@ class Complaint
      * @var text $message
      *
      * @ORM\Column(name="message", type="text")
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(message="Vous avez oublié de rédiger votre doléance !")
+     * @Assert\MinLength(limit=25, message="Vous êtes trop taciturne ! {{ limit }} caractères minimum.")
      */
     private $message;
 

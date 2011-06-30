@@ -21,7 +21,6 @@
 #complaints{
   float: left;
   width: 760px;
-  border-left: 1px dotted silver;
   margin-left: 1px;
-  padding-left: 7px;
+  padding-left: 8px;
 }

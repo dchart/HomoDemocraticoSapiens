@@ -1,32 +1,31 @@
 {% extends "::base.html.twig" %}
 
 {% block stylesheets %}
-    {% stylesheets '@HomoDemocraticoSapiensComplaintManagerBundle/Resources/css/styles.css' %}
-        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-    {% endstylesheets %}
+{% stylesheets "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/css/styles.css" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+{% endstylesheets %}
 {% endblock %}
 
 {% block title "Registre de doléances" %}
 
 {% block body %}
-
-<div id="complaint-manager">
-  <h1><a href="{{ path('complaint_manager') }}">Registre de doléances</a></h1>
-  <div class="accessibility">
-    <ul>
-      <li><a href="#commissions">Liste des commissions</a></li>
-      <li><a href="#doleances">Liste des doléances toutes commissions confondues</a></li>
-    </ul>
-  </div>
-  <div id="committees">
-    <a name="commissions"></a>
-    <h2>Commissions</h2>
-  </div>
-  <div id="complaints">
-    <a name="doleances"></a>
-    <h2>Doléances</h2>
-  </div>
-  <div style="clear:left"></div>
-</div>
-
+    <div id="complaint-manager">
+      <h1>Registre de dol&eacute;ances</h1>
+      <div class="accessibility">
+        <ul>
+          <li><a href="#commissions">Liste des commissions</a></li>
+          <li><a href="#doleances">Liste des dol&eacute;ances toutes commissions confondues</a></li>
+        </ul>
+      </div>
+      <div id="committees">
+        <a name="commissions"></a>
+        <h2>Commissions</h2>
+{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" %}
+      </div>
+      <div id="complaints">
+        <a name="doleances"></a>
+        <h2>Dol&eacute;ances</h2>
+      </div>
+      <div style="clear:left"></div>
+    </div>
 {% endblock %}
