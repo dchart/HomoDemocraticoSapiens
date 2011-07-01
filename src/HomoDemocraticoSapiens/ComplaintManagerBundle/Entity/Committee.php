@@ -5,6 +5,7 @@ namespace HomoDemocraticoSapiens\ComplaintManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use SamJ\DoctrineSluggableBundle\SluggableInterface;
 
 /**
  * HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee
@@ -12,7 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Committee
+class Committee implements SluggableInterface
 {
     /**
      * @var integer $id
@@ -43,6 +44,12 @@ class Committee
      * @ORM\OneToMany(targetEntity="Complaint", mappedBy="committee")
      */
     private $complaints;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+    
     
     public function __construct()
     {
@@ -117,6 +124,21 @@ class Committee
     public function getComplaints()
     {
         return $this->complaints;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug)
+    {
+        if (!empty($this->slug)) return false;
+        $this->slug = $slug;
+    }
+
+    public function getSlugFields() {
+        return $this->getName();
     }
 
     public function __toString()
