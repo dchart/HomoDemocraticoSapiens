@@ -9,11 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/registre-doleances", name="complaint_manager")
+     * @Route("/registre-doleances")
+     * @Route("/registre-doleances/{committee}", name="complaint_manager")
      * @Template()
      */
     public function indexAction()
     {
-        return array();
+        $em = $this->container->get('doctrine.orm.entity_manager');
+        $committees = $em->getRepository('HomoDemocraticoSapiensComplaintManagerBundle:Committee')->findAll();
+        return array('committees'=>$committees);
     }
 }

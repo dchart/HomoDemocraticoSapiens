@@ -10,6 +10,7 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/registre-doleances", name="complaint_manager")
+     * @Route("/registre-doleances/{committee}", name="complaint_manager_committee")
      * @Template()
      */
     public function indexAction()
