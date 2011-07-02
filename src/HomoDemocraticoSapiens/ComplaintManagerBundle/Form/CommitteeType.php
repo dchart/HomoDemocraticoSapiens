@@ -9,9 +9,16 @@ class CommitteeType extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
-        $builder
-            ->add('name')
-            ->add('description', 'textarea')
-        ;
+        if($options['data']->getId() != null):
+          $builder
+              ->add('name', 'text', array('read_only'=>true))
+              ->add('description', 'textarea')
+          ;
+        else:
+          $builder
+              ->add('name')
+              ->add('description', 'textarea')
+          ;
+        endif;
     }
 }

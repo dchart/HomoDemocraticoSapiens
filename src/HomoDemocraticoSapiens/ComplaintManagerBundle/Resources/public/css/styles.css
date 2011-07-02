@@ -1,24 +1,23 @@
+html{
+  font-family: 'sans serif';
+}
 p{
   text-indent: 10px;
   text-align: justify;
 }
-
 .accessibility{
   display: none;
 }
-
 fieldset{
   border: 1px solid darkblue;
   padding: 10px;
   margin: 10px;
 }
-
 legend{
   font-weight: bold;
   padding: 2px 10px;
   letter-spacing: 1px;
 }
-
 label{
   font-weight: bold;
   float: left;
@@ -26,80 +25,78 @@ label{
   padding: 5px 15px;
   letter-spacing: 1px;
 }
-
 input, textarea{
   width: 950px;
   font-size: 15px;
   font-weight: bold;
   padding: 3px;
 }
-
+textarea{
+  height: 60px;
+}
 .buttons{
   padding: 20px;
   text-align: center;
 }
-
+hr{
+  color: black;
+  background-color: black;
+  height: 1px;
+  border: 0;
+}
+/* end common styles */
 #complaint-manager{
   width: 990px;
   margin: 0 auto;
 }
-
 #complaint-manager h2{
   margin: 0;
   padding: 5px;
   text-align: center;
 }
-
 #committees, #complaints{
   padding: 0 2px;
 }
-
 #committees{
   float: left;
   width: 215px;
 }
-
 #committees ul{
   padding: 0;
 }
-
 #committees ul li{
   list-style-type: none;
 }
-
 #committees ul li a{
   display: block;
   padding: 5px;
+  padding-left: 20px;
   text-decoration: none;
 }
-
 #committees ul li:hover{
   background: #eee;
 }
-
 #committees ul li#current a{
   font-weight: bold;
   background: black;
   color: white;
 }
-
 #complaints{
   float: left;
   width: 760px;
   margin-left: 1px;
   padding-left: 8px;
 }
-
 .clear{
   clear: left;
 }
-
+#committee-new, #committee-edit{
+  padding-left: 25px;
+  font-size: 15px;
+}
 #committee-new{
   background: url(/images/add_group.png) no-repeat left center;
-  padding-left: 25px;
 }
-
 #committee-edit{
   background: url(/images/edit.png) no-repeat left center;
-  padding-left: 25px;
 }
