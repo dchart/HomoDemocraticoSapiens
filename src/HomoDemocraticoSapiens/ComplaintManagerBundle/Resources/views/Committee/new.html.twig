@@ -1,16 +1,25 @@
-<h1>Committee creation</h1>
+{% extends "::base.html.twig" %}
 
-<form action="{{ path('committee_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block stylesheets %}
+{% stylesheets "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/css/styles.css" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+{% endstylesheets %}
+{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('committee') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block title "Inauguration d'une nouvelle commission" %}
+
+{% block body %}
+    <div id="complaint-manager">
+      <h1>Registre de doléances</h1>
+      <h2>Inauguration d'une nouvelle commission</h2>
+      <form action="{{ path('committee_create') }}" method="post" {{ form_enctype(form) }}>
+        <fieldset>
+        <legend>Nouvelle commission</legend>
+            {{ form_widget(form) }}
+            <div class="buttons">
+                <button type="submit">Inaugurer !</button>&nbsp;<a href="{{ path('complaint_manager') }}" class="cancel_button">Annuler</a>
+            </div>
+        </fieldset>
+      </form>
+    </div>
+{% endblock %}

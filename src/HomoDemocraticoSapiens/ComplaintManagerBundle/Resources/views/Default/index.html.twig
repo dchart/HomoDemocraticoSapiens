@@ -14,17 +14,32 @@
       <div class="accessibility">
         <ul>
           <li><a href="#commissions">Liste des commissions</a></li>
+          {% if committee is not null %}
+          <li><a href="#doleances">Liste des dol&eacute;ances de la commission {{committee}}</a></li>
+          {% else %}
           <li><a href="#doleances">Liste des dol&eacute;ances toutes commissions confondues</a></li>
+          {% endif %}
         </ul>
       </div>
       <div id="committees">
-        <a name="commissions"></a>
+        <a id="commissions"></a>
         <h2>Commissions</h2>
-{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" with {'committees': committees, 'slug':'slug'} %}
+{% if committee is null %}
+{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" with {'committees': committees} %}
+{% else %}
+{% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" with {'committees': committees, 'urlslug': committee.slug} %}
+{% endif %}
+
       </div>
       <div id="complaints">
-        <a name="doleances"></a>
+        <a id="doleances"></a>
+{% if committee is null %}
         <h2>Dol&eacute;ances</h2>
+{% else %}
+        <h2>Dol&eacute;ances de la commission <em>{{committee}}</em></h2>
+        <p id="committee-desc">{{ committee.description }}</p>
+{% endif %}
+        <hr id="complaint" />
       </div>
       <div class="clear"></div>
     </div>

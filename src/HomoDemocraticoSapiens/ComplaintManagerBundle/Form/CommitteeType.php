@@ -11,7 +11,7 @@ class CommitteeType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('description')
+            ->add('description', 'textarea')
         ;
     }
 }

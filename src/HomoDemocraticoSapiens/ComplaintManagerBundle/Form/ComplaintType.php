@@ -12,7 +12,7 @@ class ComplaintType extends AbstractType
         $builder
             ->add('title')
             ->add('committee')
-            ->add('message')
+            ->add('message','textarea')
         ;
     }
 }

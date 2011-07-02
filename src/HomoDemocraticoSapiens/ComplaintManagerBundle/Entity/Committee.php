@@ -5,6 +5,7 @@ namespace HomoDemocraticoSapiens\ComplaintManagerBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints as Unique;
 use SamJ\DoctrineSluggableBundle\SluggableInterface;
 
 /**
@@ -12,6 +13,7 @@ use SamJ\DoctrineSluggableBundle\SluggableInterface;
  *
  * @ORM\Table()
  * @ORM\Entity
+ * @Unique\UniqueEntity(fields={"name"}, message="Ce nom de commission est déjà employé. Merci de revérifier votre intention.")
  */
 class Committee implements SluggableInterface
 {
@@ -27,7 +29,7 @@ class Committee implements SluggableInterface
     /**
      * @var string $name
      *
-     * @ORM\Column(name="name", type="string", length=50)
+     * @ORM\Column(name="name", type="string", length=50, unique=true)
      * @Assert\NotBlank(message="Veuillez intituler la commission.")
      * @Assert\MinLength(limit=3, message="Le nom de la commission doit excéder {{limit}} caractères.")
      */
@@ -36,7 +38,7 @@ class Committee implements SluggableInterface
     /**
      * @var text $description
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="string")
      */
     private $description;
     

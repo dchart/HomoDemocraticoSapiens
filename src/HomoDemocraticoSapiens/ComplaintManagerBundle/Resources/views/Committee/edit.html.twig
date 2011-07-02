@@ -1,22 +1,34 @@
-<h1>Committee edit</h1>
+{% extends "::base.html.twig" %}
 
-<form action="{{ path('committee_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
-    {{ form_widget(edit_form) }}
-    <p>
-        <button type="submit">Edit</button>
-    </p>
-</form>
+{% block stylesheets %}
+{% stylesheets "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/css/styles.css" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+{% endstylesheets %}
+{% endblock %}
 
-<ul class="record_actions">
-    <li>
-        <a href="{{ path('committee') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('committee_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
-        </form>
-    </li>
-</ul>
+{% block title "Edition d'une commission" %}
+
+{% block body %}
+    <div id="complaint-manager">
+      <h1>Registre de doléances</h1>
+      <h2>Edition de la commission {{entity}}</h2>
+        <form action="{{ path('committee_update', { 'slug': entity.slug }) }}" method="post" {{ form_enctype(edit_form) }}>
+        <fieldset>
+        <legend>Commission {{entity}}</legend>
+            {{ form_widget(edit_form) }}
+            <div class="buttons">
+                <button type="submit">Soumettre !</button>&nbsp;<a href="{{ path('complaint_manager') }}" class="cancel_button">Annuler</a>
+            </div>
+        </fieldset>
+      </form>
+
+      <ul class="record_actions">
+          <li>
+              <form action="{{ path('committee_delete', { 'id': entity.id }) }}" method="post">
+                  {{ form_widget(delete_form) }}
+                  <button type="submit" onclick="return confirm('Confirmez-vous la dissolution de la commission {{entity}} ?\n\n\tCETTE ACTION EST IRREVOCABLE ET SUPPRIMERA AUSSI TOUTES LES DOLEANCES ASSIGNEES A CETTE COMMISSION !!!')">Dissoudre la commission {{entity}}</button>
+              </form>
+          </li>
+      </ul>
+    </div>
+{% endblock %}
