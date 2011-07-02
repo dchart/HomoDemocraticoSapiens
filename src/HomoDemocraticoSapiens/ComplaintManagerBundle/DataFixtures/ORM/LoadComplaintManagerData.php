@@ -49,5 +49,12 @@ class LoadComplaintManagerData implements FixtureInterface
         $complaint->setCensorshipJustification('Vulgaire');
         $manager->persist($complaint);
         $manager->flush();
+        
+        $complaint = new Complaint();
+        $complaint->setTitle('Pas d\'annonces audiovisuelles des prochains arrêts');
+        $complaint->setCommittee($accessibilite);
+        $complaint->setMessage('J\'ai vu dans des réseaux de transports urbains de grandes villes des bus qui faisaient des annonces vocales des prochains arrêts accompagnées d\'un afficheur digital qui les faisait défiler en toutes lettres. Ce serait pratique que ça se fasse aussi ici notamment pour les gens qui ne connaitraient pas par coeur les différentes étapes.');
+        $manager->persist($complaint);
+        $manager->flush();
     }
 }

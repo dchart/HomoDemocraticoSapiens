@@ -1,13 +1,15 @@
         <hr />
         {% for complaint in committee.complaints %}
-        <div class="complaint">
         {% if complaint.isCensored %}
-          <p>Censuré : {{ complaint.censorshipJustification }}</p>
+        <div class="censored">
+          <p>Dol&eacute;ance censur&eacute;e : {{ complaint.censorshipJustification }}</p>
+        </div>
         {% else %}
+        <div class="complaint">
           <h3>{{ complaint.title }}</h3>
           <p>{{ complaint.message }}</p>
-        {% endif %}
         </div>
+        {% endif %}
         <hr />
         {% else %}
         <p>Aucune dol&eacute;ance soumise pour l'instant.</p>

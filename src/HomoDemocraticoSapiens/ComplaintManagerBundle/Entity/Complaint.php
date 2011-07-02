@@ -68,6 +68,13 @@ class Complaint
      */
     private $degree_of_assumption = 0;
 
+    /**
+     * @var datetime $created_at
+     *
+     * @ORM\Column(name="created_at", type="datetime")
+     */
+    private $created_at;
+
 
     /**
      * Get id
@@ -202,6 +209,30 @@ class Complaint
     public function __toString()
     {
        return $this->title;
+    }
+
+    public function __construct(){
+        $this->created_at = new \DateTime();
+    }
+    
+    /**
+     * Set created_at
+     *
+     * @param datetime $createdAt
+     */
+    public function setCreatedAt(\DateTime $createdAt)
+    {
+        $this->created_at = $createdAt;
+    }
+ 
+    /**
+     * Get created_at
+     *
+     * @return datetime $createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
     }
 
     /**

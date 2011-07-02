@@ -97,6 +97,15 @@ a:hover{
 .clear{
   clear: left;
 }
+.censored{
+  color: gray;
+  padding: 1px 20px;
+  font-size: 12px;
+  background: #eaeaea url(/images/blocked.png) no-repeat 15px 12px;
+  letter-spacing: 1px;
+  font-style: italic;
+  font-family: serif;
+}
 #committee-new, #committee-edit, #complaint-hot, #complaint-new{
   padding-left: 20px;
   font-size: 13px;
@@ -113,5 +122,5 @@ a:hover{
 #complaint-new{
   background: url(/images/asterisk.png) no-repeat left center;
   float: right;
-  margin-top: 35px;
+  margin-top: 32px;
 }

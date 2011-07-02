@@ -44,6 +44,7 @@ class Committee implements SluggableInterface
     
     /**
      * @ORM\OneToMany(targetEntity="Complaint", mappedBy="committee")
+     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $complaints;
     
