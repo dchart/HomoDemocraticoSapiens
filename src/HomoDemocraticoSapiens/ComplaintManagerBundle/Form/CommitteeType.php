@@ -11,12 +11,12 @@ class CommitteeType extends AbstractType
     {
         if($options['data']->getId() != null):
           $builder
-              ->add('name', 'text', array('read_only'=>true))
+              ->add('name', 'text', array('label' => 'Nom de la commission', 'read_only' => true))
               ->add('description', 'textarea')
           ;
         else:
           $builder
-              ->add('name')
+              ->add('name', 'text', array('label' => 'Nom de la commission'))
               ->add('description', 'textarea')
           ;
         endif;
