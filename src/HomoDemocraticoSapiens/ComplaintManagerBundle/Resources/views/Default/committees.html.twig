@@ -5,6 +5,6 @@
 {% endfor %}
         </ul>
 {% if urlslug is defined and urlslug == committee.slug %}
-        <div id="committee-edit"><a href="{{ path('committee_edit', { 'slug': committee.slug }) }}" title="Editer la commission {{ committee }}">Editer cette commission</a></div>
+        <div id="committee-edit"><a href="{{ path('committee_edit', { 'slug': committee.slug }) }}" title="&Eacute;diter la commission {{ committee }}">&Eacute;diter cette commission</a></div>
 {% endif %}
         <div id="committee-new"><a href="{{ path('committee_new') }}" title="Inaugurer une nouvelle commission">Nouvelle commission</a></div>

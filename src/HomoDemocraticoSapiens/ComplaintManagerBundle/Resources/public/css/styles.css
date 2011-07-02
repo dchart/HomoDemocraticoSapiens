@@ -44,6 +44,9 @@ hr{
   height: 1px;
   border: 0;
 }
+a:hover{
+  color: red;
+}
 /* end common styles */
 #complaint-manager{
   width: 990px;
@@ -90,13 +93,16 @@ hr{
 .clear{
   clear: left;
 }
-#committee-new, #committee-edit{
-  padding-left: 25px;
-  font-size: 15px;
+#committee-new, #committee-edit, #complaint-hot{
+  padding-left: 20px;
+  font-size: 13px;
 }
 #committee-new{
   background: url(/images/add_group.png) no-repeat left center;
 }
 #committee-edit{
   background: url(/images/edit.png) no-repeat left center;
+}
+#complaint-hot{
+  background: url(/images/asterisk.png) no-repeat left center;
 }
