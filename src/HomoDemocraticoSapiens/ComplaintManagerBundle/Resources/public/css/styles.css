@@ -59,6 +59,30 @@ input, textarea{
   width: 215px;
 }
 
+#committees ul{
+  padding: 0;
+}
+
+#committees ul li{
+  list-style-type: none;
+}
+
+#committees ul li a{
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+
+#committees ul li:hover{
+  background: #eee;
+}
+
+#committees ul li#current a{
+  font-weight: bold;
+  background: black;
+  color: white;
+}
+
 #complaints{
   float: left;
   width: 760px;
@@ -70,11 +94,12 @@ input, textarea{
   clear: left;
 }
 
-#addgroup{
+#committee-new{
   background: url(/images/add_group.png) no-repeat left center;
   padding-left: 25px;
 }
 
-.committee-edit{
-  float: right;
+#committee-edit{
+  background: url(/images/edit.png) no-repeat left center;
+  padding-left: 25px;
 }

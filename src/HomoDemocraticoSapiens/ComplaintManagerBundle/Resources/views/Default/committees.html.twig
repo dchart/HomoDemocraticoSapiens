@@ -1,13 +1,10 @@
         <ul>
-          <li>
-            <a href="{{ path('complaint_manager') }}">Toutes confondues</a>
-          </li>
+          <li{% if urlslug is not defined %} id="current"{% endif %}><a href="{{ path('complaint_manager') }}">Toutes confondues</a></li>
 {% for committee in committees %}
-          <li>
-            <a href="{{ path('complaint_manager_committee', { 'committee': committee.slug }) }}">{{ committee }}</a>
-          {% if urlslug is defined and urlslug == committee.slug %}
-            <a href="{{ path('committee_edit', { 'slug': committee.slug }) }}" title="Editer la commission {{ committee }}">{% image "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/images/edit.png" %}<img src="{{ asset_url }}" alt="Editer la commission {{ committee }}" title="Editer la commission {{ committee }}" class="committee-edit" />{% endimage %}</a>
-          {% endif %}</li>
+          <li{% if urlslug is defined and urlslug == committee.slug %} id="current"{% endif %}><a href="{{ path('complaint_manager_committee', { 'committee': committee.slug }) }}">{{ committee }}</a></li>
 {% endfor %}
         </ul>
-        <div id="addgroup"><a href="{{ path('committee_new') }}" title="Inaugurer une nouvelle commission">Nouvelle commission</a></div>
+{% if urlslug is defined and urlslug == committee.slug %}
+        <div id="committee-edit"><a href="{{ path('committee_edit', { 'slug': committee.slug }) }}" title="Editer la commission {{ committee }}">Editer la commission</a></div>
+{% endif %}
+        <div id="committee-new"><a href="{{ path('committee_new') }}" title="Inaugurer une nouvelle commission">Nouvelle commission</a></div>
