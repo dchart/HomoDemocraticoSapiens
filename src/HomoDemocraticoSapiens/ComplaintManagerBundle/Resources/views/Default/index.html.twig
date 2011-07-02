@@ -13,11 +13,12 @@
       <h1>Registre de dol&eacute;ances</h1>
       <div class="accessibility">
         <ul>
-          <li><a href="#commissions">Liste des commissions</a></li>
+          <li><a href="#commissions">Acc&eacute;der &agrave; la liste des commissions</a></li>
+          <li><a href="#preoccupations">Acc&eacute;der aux pr&eacute;occupations</a></li>
           {% if committee is not null %}
-          <li><a href="#doleances">Liste des dol&eacute;ances de la commission {{committee}}</a></li>
+          <li><a href="#doleances">Acc&eacute;der &agrave; la liste des dol&eacute;ances de la commission {{committee}}</a></li>
           {% else %}
-          <li><a href="#doleances">Liste des dol&eacute;ances toutes commissions confondues</a></li>
+          <li><a href="#doleances">Acc&eacute;der &agrave; la liste des dol&eacute;ances toutes commissions confondues</a></li>
           {% endif %}
         </ul>
       </div>
@@ -29,7 +30,11 @@
 {% else %}
 {% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:committees.html.twig" with {'committees': committees, 'urlslug': committee.slug} %}
 {% endif %}
-
+        <hr />
+        <a id="preoccupations"></a>
+        <h2>Pr&eacute;occupations</h2>
+        
+        <hr />
       </div>
       <div id="complaints">
         <a id="doleances"></a>
