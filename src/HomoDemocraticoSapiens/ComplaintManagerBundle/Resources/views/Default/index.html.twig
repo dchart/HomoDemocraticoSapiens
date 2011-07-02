@@ -10,7 +10,9 @@
 
 {% block body %}
     <div id="complaint-manager">
-      <h1>Registre de dol&eacute;ances</h1>
+      <h1 style="float: left;">Registre de dol&eacute;ances</h1>
+      <div id="complaint-new"><a href="{{ path('complaint_new') }}">R&eacute;digez une nouvelle dol&eacute;ance&nbsp;!</a></div>
+      <div class="clear"></div>
       <div class="accessibility">
         <ul>
           <li><a href="#commissions">Acc&eacute;der &agrave; la liste des commissions</a></li>
@@ -33,7 +35,7 @@
         <hr />
         <a id="preoccupations"></a>
         <h2>Pr&eacute;occupations</h2>
-        <div id="complaint-hot"><a href="">Désigner une doléance récurrente</a></div>
+        <div id="complaint-hot"><a href="">Désigner une nouvelle doléance récurrente</a></div>
         <hr />
       </div>
       <div id="complaints">
@@ -43,8 +45,8 @@
 {% else %}
         <h2>Dol&eacute;ances de la commission <em>{{committee}}</em></h2>
         <p id="committee-desc">{{ committee.description }}</p>
+        {% include "HomoDemocraticoSapiensComplaintManagerBundle:Default:complaints.html.twig" with {'committee': committee} %}
 {% endif %}
-        <hr id="complaint" />
       </div>
       <div class="clear"></div>
     </div>

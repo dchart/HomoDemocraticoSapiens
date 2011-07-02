@@ -4,8 +4,9 @@ namespace HomoDemocraticoSapiens\ComplaintManagerBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Committee;
+use HomoDemocraticoSapiens\ComplaintManagerBundle\Entity\Complaint;
 
-class LoadCommitteeData implements FixtureInterface
+class LoadComplaintManagerData implements FixtureInterface
 {
     public function load($manager)
     {
@@ -29,8 +30,24 @@ class LoadCommitteeData implements FixtureInterface
         
         $bus = new Committee();
         $bus->setName('Flotte de bus');
-        $bus->setDescription('Nos véhicules sont le vecteur de vos voyages. Sont-ils suffisament propres ? sécurisés ? confortables ? Vos remarques à ce sujet nous sont précieuses.');
+        $bus->setDescription('Nos véhicules sont le vecteur de vos voyages. Sont-ils suffisamment propres ? sécurisés ? confortables ? Vos remarques à ce sujet nous sont précieuses.');
         $manager->persist($bus);
+        $manager->flush();
+        
+        $complaint = new Complaint();
+        $complaint->setTitle('Dur dur quand on est aveugle !');
+        $complaint->setCommittee($accessibilite);
+        $complaint->setMessage('Je trouve les bus mal conçus quand on est aveugle ! Aucune signalisation sonore des prochains arrêts et aucun braille sur les boutons pour réclamer un arrêt ! Ça craint un max !');
+        $manager->persist($complaint);
+        $manager->flush();
+        
+        $complaint = new Complaint();
+        $complaint->setTitle('Wesh wesh ! Je fous le dawa !');
+        $complaint->setCommittee($accessibilite);
+        $complaint->setMessage('Tu le kiff ma doléance pr pourrave ton système ??');
+        $complaint->setIsCensored(true);
+        $complaint->setCensorshipJustification('Vulgaire');
+        $manager->persist($complaint);
         $manager->flush();
     }
 }

@@ -2,7 +2,10 @@ html{
   font-family: 'sans serif';
 }
 p{
-  text-indent: 10px;
+  text-indent: 15px;
+  text-align: justify;
+}
+ol li{
   text-align: justify;
 }
 .accessibility{
@@ -46,6 +49,7 @@ hr{
 }
 a:hover{
   color: red;
+  text-decoration: none;
 }
 /* end common styles */
 #complaint-manager{
@@ -93,7 +97,7 @@ a:hover{
 .clear{
   clear: left;
 }
-#committee-new, #committee-edit, #complaint-hot{
+#committee-new, #committee-edit, #complaint-hot, #complaint-new{
   padding-left: 20px;
   font-size: 13px;
 }
@@ -105,4 +109,9 @@ a:hover{
 }
 #complaint-hot{
   background: url(/images/asterisk.png) no-repeat left center;
+}
+#complaint-new{
+  background: url(/images/asterisk.png) no-repeat left center;
+  float: right;
+  margin-top: 35px;
 }

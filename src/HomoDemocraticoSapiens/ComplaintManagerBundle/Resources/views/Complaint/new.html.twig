@@ -1,8 +1,35 @@
-<h1>R&eacute;digez votre dol&eacute;ance&nbsp;!</h1>
+{% extends "::base.html.twig" %}
 
-<form action="{{ path('doleances_create') }}" method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <p>
-        <button type="submit">Create</button>
-    </p>
-</form>
+{% block stylesheets %}
+{% stylesheets "@HomoDemocraticoSapiensComplaintManagerBundle/Resources/public/css/styles.css" %}
+        <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="all" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block title "Rédaction de votre doléance" %}
+
+{% block body %}
+    <div id="complaint-manager">
+      <h1>Registre de doléances</h1>
+      <h2>R&eacute;digez votre dol&eacute;ance&nbsp;!</h2>
+      <p>Le formulaire ci-dessous va vous permettre de soumettre ais&eacute;ment votre nouvelle dol&eacute;ance.</p>
+      <p>Voici quelques recommandations afin d'assurer l'efficacit&eacute; de votre r&eacute;daction&nbsp;:</p>
+      <ol>
+        <li><strong>Saisissez un titre clair et concis mais &eacute;vocateur de votre point de vue.</strong> Il doit servir d'<strong>accroche</strong> pour nos visiteurs.</li>
+        <li><strong>D&eacute;signez la commission la plus pertinente correspondant &agrave; votre dol&eacute;ance.</strong> La commission d&eacute;sign&eacute;e &eacute;tant en effet en charge de rep&eacute;rer les dol&eacute;ances r&eacute;currentes afin de les &eacute;lucider.</li>
+        <li><strong>R&eacute;digez votre dol&eacute;ance afin de faire comprendre &agrave; tous l'essence de votre position.</strong> Encha&icirc;nez des <strong>phrases courtes</strong> et soyez <strong>limpide &agrave; lire</strong>. <strong>Evitez autant que faire se peut les fautes d'orthographe</strong> (elles seront corrigées le cas échéant) et <strong>bannissez imp&eacute;rativement le langage SMS et kikoolol</strong>.</li>
+        <li><strong>Assignez-y des mots-cl&eacute;s suceptibles d'&ecirc;tre r&eacute;utilis&eacute;s par d'autres.</strong> Vous serez interactivement guid&eacute; dans vos choix mais n'h&eacute;sitez pas &agrave; ajouter de nouveaux mots-cl&eacute;s si vous le jugez opportun.</li>
+      </ol>
+      <p>Nous consid&eacute;rons que <strong>toute dol&eacute;ance doit demeurer anonyme</strong>. Ainsi, nous ne r&eacute;coltons aucune information permettant d'identifier le r&eacute;dacteur. Merci d'avance de jouer franc jeu et de vous abstenir de valider des dol&eacute;ances qui r&eacute;clameraient une censure &agrave; post&eacute;riori du fait de la l&eacute;gislation fran&ccedil;aise.</p>
+      <p>Si toutefois vous auriez la faiblesse d'esprit de vous faire censurer, le motif en sera publi&eacute;. N&eacute;anmoins, nous faisons confiance &agrave; votre discernement et nous sommes certains que vous saurez utiliser cet outil en bonne intelligence.</p>
+      <form action="{{ path('complaint_create') }}" method="post" {{ form_enctype(form) }}>
+        <fieldset>
+        <legend>Nouvelle dol&eacute;ance</legend>
+            {{ form_widget(form) }}
+            <div class="buttons">
+                <button type="submit">Soumettre</button>&nbsp;<a href="{{ path('complaint_manager') }}" class="cancel_button">Annuler</a>
+            </div>
+        </fieldset>
+      </form>
+    </div>
+{% endblock %}

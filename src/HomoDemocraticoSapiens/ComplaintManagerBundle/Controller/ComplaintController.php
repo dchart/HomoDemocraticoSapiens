@@ -43,7 +43,7 @@ class ComplaintController extends Controller
     /**
      * Displays a form to create a new Complaint entity.
      *
-     * @Route("/redaction-doleance", name="complaint_new")
+     * @Route("/doleance/redaction", name="complaint_new")
      * @Template()
      */
     public function newAction()
@@ -60,7 +60,7 @@ class ComplaintController extends Controller
     /**
      * Creates a new Complaint entity.
      *
-     * @Route("/create", name="doleances_create")
+     * @Route("/doleance/creation", name="complaint_create")
      * @Method("post")
      * @Template("HomoDemocraticoSapiensComplaintManagerBundle:Complaint:new.html.twig")
      */
@@ -78,7 +78,7 @@ class ComplaintController extends Controller
                 $em->persist($entity);
                 $em->flush();
 
-                return $this->redirect($this->generateUrl('doleances_show', array('id' => $entity->getId())));
+                return $this->redirect($this->generateUrl('complaint_manager'));
                 
             }
         }

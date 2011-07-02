@@ -10,8 +10,8 @@ class ComplaintType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('committee')
+            ->add('title','text',array('label'=>'Titre'))
+            ->add('committee',null,array('label'=>'Commission'))
             ->add('message','textarea')
         ;
     }
